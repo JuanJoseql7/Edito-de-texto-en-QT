@@ -91,7 +91,7 @@ Nombre : Juan Jose Quintero Lopez
 
 IE: Universidad tecnologica de pereira - Colombia
 
-Carrera: Ingeneria en sistemas y computacion
+Carrera: Ingeneria de sistemas y computacion
 
 Materia: Programacion II
 
@@ -101,7 +101,7 @@ Correo Personal: juanjosequinterolopez7@gmail.com
 
 Correo institucional: j.quintero8@utp.edu.co
 
-![image](https://github.com/JuanJoseql7/Edito-de-texto-en-QT/assets/152351475/2b71e5ca-781e-4633-aad2-7825e4c6aed8)
+https://camo.githubusercontent.com/4a8c9a6826f1d59322bd2472e9d157ce2c99557239b597cdd497e3fccc576e32/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f322f32632f4c6f676f5f552e542e502e706e672f33323070782d4c6f676f5f552e542e502e706e67
 
 # Colaborador
 
@@ -109,7 +109,7 @@ Nombre : Santiago Orjuela Diaz
 
 IE: Universidad tecnologica de pereira - Colombia
 
-Carrera: Ingeneria en sistemas y computacion
+Carrera: Ingeneria de sistemas y computacion
 
 Materia: Programacion II
 
@@ -119,6 +119,7 @@ Correo Personal: saordi2702@gmail.com
 
 Correo institucional: santiago.orjuela1@utp.edu.co
 
+https://camo.githubusercontent.com/4a8c9a6826f1d59322bd2472e9d157ce2c99557239b597cdd497e3fccc576e32/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f322f32632f4c6f676f5f552e542e502e706e672f33323070782d4c6f676f5f552e542e502e706e67
 ![image](https://github.com/JuanJoseql7/Edito-de-texto-en-QT/assets/152351475/2b71e5ca-781e-4633-aad2-7825e4c6aed8)
 
 
