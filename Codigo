@@ -1,0 +1,266 @@
+#include <QApplication>
+#include <QMainWindow>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
+#include <QFileDialog>
+#include <QTextEdit>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QToolBar>
+#include <QIcon>
+#include <QPixmap>
+#include <QFile>
+#include <QMessageBox>
+#include <QColorDialog>
+#include <QTextDocumentWriter>
+#include <QFileInfo>
+#include <QTextCharFormat>
+#include <QTextCursor>
+#include <QFontDialog>
+#include <QDebug>
+
+
+void centrarTexto(QTextEdit* textoEdit) {
+    QTextCursor cursor = textoEdit->textCursor();
+    QTextBlockFormat formatoBloque = cursor.blockFormat();
+    formatoBloque.setAlignment(Qt::AlignCenter);
+    cursor.mergeBlockFormat(formatoBloque);
+    textoEdit->setTextCursor(cursor);
+}
+
+void alinearIzquierda(QTextEdit* textoEdit) {
+    QTextCursor cursor = textoEdit->textCursor();
+    QTextBlockFormat formatoBloque = cursor.blockFormat();
+    formatoBloque.setAlignment(Qt::AlignLeft);
+    cursor.mergeBlockFormat(formatoBloque);
+    textoEdit->setTextCursor(cursor);
+}
+
+void justificarTexto(QTextEdit* textoEdit) {
+    QTextCursor cursor = textoEdit->textCursor();
+    QTextBlockFormat formatoBloque = cursor.blockFormat();
+    formatoBloque.setAlignment(Qt::AlignJustify);
+    cursor.mergeBlockFormat(formatoBloque);
+    textoEdit->setTextCursor(cursor);
+}
+
+void alinearDerecha(QTextEdit* textoEdit) {
+    QTextCursor cursor = textoEdit->textCursor();
+    QTextBlockFormat formatoBloque = cursor.blockFormat();
+    formatoBloque.setAlignment(Qt::AlignRight);
+    cursor.mergeBlockFormat(formatoBloque);
+    textoEdit->setTextCursor(cursor);
+}
+
+void aplicarFormatoTexto(QTextEdit* textoEdit, QTextCharFormat formato) {
+    QTextCursor cursor = textoEdit->textCursor();
+    if (!cursor.hasSelection()) {
+        cursor.select(QTextCursor::WordUnderCursor);
+    }
+    cursor.mergeCharFormat(formato);
+    textoEdit->mergeCurrentCharFormat(formato);
+}
+
+void cambiarColorTexto(QTextEdit* textoEdit) {
+    QColor color = QColorDialog::getColor(Qt::white, textoEdit);
+
+    if (color.isValid()) {
+        QTextCharFormat formatoColor;
+        formatoColor.setForeground(color);
+        aplicarFormatoTexto(textoEdit, formatoColor);
+    }
+}
+
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
+
+    QMainWindow ventanaPrincipal;
+    ventanaPrincipal.setWindowTitle("Programa pro Cucuta a la A");
+
+    QMessageBox mensajeBienvenida;
+    mensajeBienvenida.setText("¡Bienvenidos a la cuna del FPC!");
+        mensajeBienvenida.setWindowTitle("Excepto el fantasma de la B");
+
+    QPixmap icono("C:/Users/57302/OneDrive/Imágenes/DZVHXzFW0AEACUm.jpg");
+        QSize nuevoTamaño(256, 256);  // Ajusta el tamaño del icono
+    QPixmap iconoEscalado = icono.scaled(nuevoTamaño, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+                            mensajeBienvenida.setIconPixmap(iconoEscalado);
+    mensajeBienvenida.setStyleSheet("QLabel{ color: red; }");
+    mensajeBienvenida.exec();
+
+    QMenuBar *barraMenu = ventanaPrincipal.menuBar();
+    QMenu *menuArchivo = barraMenu->addMenu("Archivo");
+
+    menuArchivo->setIcon(QIcon("C:/Users/57302/OneDrive/Imágenes/tolima.png").pixmap(QSize(128, 128)));  // Ajusta el tamaño del icono
+
+    QString nombreBoton = "Acción";
+
+        QAction *abrir = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/Alex castro.png").pixmap(QSize(128, 128)), "Abrir", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *guardar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/VOlpi.jpeg").pixmap(QSize(128, 128)), "Guardar", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *eliminar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/marcoo.jpeg").pixmap(QSize(128, 128)), "Eliminar", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *imprimir = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/el calvo.jpg").pixmap(QSize(128, 128)), "Imprimir", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *centrar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/Yeison-Guzman-Tolima.jpg").pixmap(QSize(128, 128)), "Centrar", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *fuente = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/fuentes.jpg").pixmap(QSize(128, 128)), "Fuente", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *izquierda = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/chipichipi.jpeg").pixmap(QSize(128, 128)), "Izquierda", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *justificar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/restrepo.jpeg").pixmap(QSize(128, 128)), "Justificar", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *derecha = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/james.jpg").pixmap(QSize(128, 128)), "Derecha", &ventanaPrincipal);  // Ajusta el tamaño del icono
+    QAction *colorTexto = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/Lucu.jpg").pixmap(QSize(128, 128)), "Color", &ventanaPrincipal);  // Ajusta el tamaño del icono
+
+    abrir->setText("Abrir");
+    guardar->setText("Guardar");
+    eliminar->setText("Eliminar");
+    imprimir->setText("Imprimir");
+
+    menuArchivo->addAction(abrir);
+    menuArchivo->addAction(guardar);
+    menuArchivo->addAction(eliminar);
+    menuArchivo->addAction(imprimir);
+    menuArchivo->addAction(fuente);
+
+    QTextEdit *areaTexto = new QTextEdit(&ventanaPrincipal);
+    ventanaPrincipal.setCentralWidget(areaTexto);
+
+    QToolBar *barraHerramientas = ventanaPrincipal.addToolBar("Herramientas de Texto");
+
+    barraHerramientas->addAction(centrar);
+    barraHerramientas->addAction(izquierda);
+    barraHerramientas->addAction(justificar);
+    barraHerramientas->addAction(derecha);
+    barraHerramientas->addAction(colorTexto);
+
+    QObject::connect(centrar, &QAction::triggered, [&]() {
+        centrarTexto(areaTexto);
+    });
+
+
+
+    QObject::connect(izquierda, &QAction::triggered, [&]() {
+        alinearIzquierda(areaTexto);
+    });
+
+    QObject::connect(justificar, &QAction::triggered, [&]() {
+        justificarTexto(areaTexto);
+    });
+
+    QObject::connect(derecha, &QAction::triggered, [&]() {
+        alinearDerecha(areaTexto);
+    });
+
+    QObject::connect(colorTexto, &QAction::triggered, [&]() {
+        cambiarColorTexto(areaTexto);
+    });
+
+    QObject::connect(fuente, &QAction::triggered, [&]() {
+        QTextCursor cursor = areaTexto->textCursor();
+
+        // Verificar si hay texto seleccionado
+        if (!cursor.hasSelection()) {
+            // Mostrar un cuadro de diálogo de confirmación con un icono personalizado
+            QMessageBox confirmacion(QMessageBox::Question, "Uribe dio la orden?", "No hay texto seleccionado. ¿Deseas cambiar la fuente de todo el texto?", QMessageBox::Yes | QMessageBox::No, &ventanaPrincipal);
+                confirmacion.setIconPixmap(QPixmap("C:/Users/57302/OneDrive/Imágenes/1. Uribe dio la orden.png"));
+            confirmacion.setDefaultButton(QMessageBox::No);
+            confirmacion.setButtonText(QMessageBox::Yes, "Sí");
+                confirmacion.setButtonText(QMessageBox::No, "No");
+
+            if (confirmacion.exec() != QMessageBox::Yes) {
+                return;  // Cancelar el cambio de fuente si el usuario elige "No"
+            }
+        }
+
+        // Abrir el cuadro de diálogo de selección de fuente
+        bool ok;
+        QFont nuevaFuente = QFontDialog::getFont(&ok, areaTexto);
+        if (ok) {
+            QTextCharFormat formatoFuente;
+            formatoFuente.setFont(nuevaFuente);
+
+            // Aplicar el cambio de fuente a toda la selección o al texto completo si no hay selección
+            if (cursor.hasSelection()) {
+                cursor.mergeCharFormat(formatoFuente);
+            } else {
+                areaTexto->selectAll();
+                cursor = areaTexto->textCursor();
+                cursor.mergeCharFormat(formatoFuente);
+                cursor.clearSelection();
+            }
+        }
+    });
+
+
+
+    QObject::connect(eliminar, &QAction::triggered, [&]() {
+        QString filePath = QFileDialog::getOpenFileName(&ventanaPrincipal, "Eliminar archivo", "", "Todos los archivos (.)");
+        if (!filePath.isEmpty()) {
+            QFile file(filePath);
+            if (file.exists() && file.remove()) {
+                qDebug() << "Archivo eliminado: " << filePath;
+            } else {
+                qDebug() << "Error al eliminar el archivo: " << filePath;
+            }
+        }
+    });
+
+    QObject::connect(guardar, &QAction::triggered, [&]() {
+        QString filePath = QFileDialog::getSaveFileName(&ventanaPrincipal, "Guardar archivo", "", "Archivos de texto (.txt);;Archivos PDF (.pdf);;Documentos ODT (.odt);;Todos los archivos (.*)");
+
+        if (!filePath.isEmpty()) {
+            QFile file(filePath);
+
+            // Obtener la extensión del archivo seleccionado
+            QFileInfo fileInfo(file);
+            QString extension = fileInfo.suffix().toLower();
+
+            if (extension == "pdf") {
+                // Guardar como PDF
+                QPrinter impresora(QPrinter::PrinterResolution);
+                impresora.setOutputFormat(QPrinter::PdfFormat);
+                impresora.setOutputFileName(filePath);
+                areaTexto->document()->print(&impresora);
+            } else if (extension == "odt") {
+                // Guardar como documento ODT
+                QTextDocumentWriter writer(filePath);
+                writer.setFormat("odt");
+                writer.write(areaTexto->document());
+            } else {
+                // Guardar como archivo de texto por defecto
+                QString textoAGuardar = areaTexto->toPlainText();
+                if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                    QTextStream stream(&file);
+                    stream << textoAGuardar;
+                    file.close();
+                }
+            }
+        }
+    });
+    QObject::connect(abrir, &QAction::triggered, [&]() {
+        QString filter = "Archivos de texto (.txt);;Archivos PDF (.pdf);;Documentos ODT (.odt);;Todos los archivos (.*)";
+        QString filePath = QFileDialog::getOpenFileName(&ventanaPrincipal, "Abrir archivo", "", filter);
+
+        if (!filePath.isEmpty()) {
+            QFile file(filePath);
+
+            if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                QTextStream stream(&file);
+                QString contenidoArchivo = stream.readAll();
+                areaTexto->setPlainText(contenidoArchivo);
+                file.close();
+            }
+        }
+    });
+
+
+    QObject::connect(imprimir, &QAction::triggered, [&]() {
+        QPrinter impresora;
+        QPrintDialog dialogoImprimir(&impresora, &ventanaPrincipal);
+        if (dialogoImprimir.exec() == QDialog::Accepted) {
+            areaTexto->print(&impresora);
+        }
+    });
+
+    ventanaPrincipal.setGeometry(500, 500, 800, 600);
+    ventanaPrincipal.show();
+
+    return app.exec();
+}
