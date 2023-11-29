@@ -19,6 +19,7 @@
 #include <QTextCursor>
 #include <QFontDialog>
 #include <QDebug>
+#include <QCoreApplication>
 
 
 void centrarTexto(QTextEdit* textoEdit) {
@@ -71,7 +72,6 @@ void cambiarColorTexto(QTextEdit* textoEdit) {
         aplicarFormatoTexto(textoEdit, formatoColor);
     }
 }
-
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
@@ -82,32 +82,32 @@ int main(int argc, char *argv[]) {
     mensajeBienvenida.setText("¡Bienvenidos a la cuna del FPC!");
         mensajeBienvenida.setWindowTitle("Excepto el fantasma de la B");
 
-    QPixmap icono("C:/Users/57302/OneDrive/Imágenes/DZVHXzFW0AEACUm.jpg");
-        QSize nuevoTamaño(256, 256);  // Ajusta el tamaño del icono
-    QPixmap iconoEscalado = icono.scaled(nuevoTamaño, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    // Ruta base para las imágenes
+    QString rutaBase = "C:/Proyecto final/";
 
-                            mensajeBienvenida.setIconPixmap(iconoEscalado);
+    QPixmap icono(rutaBase + "DZVHXzFW0AEACUm.jpg");
+    QSize nuevoTamaño(256, 256);
+        QPixmap iconoEscalado = icono.scaled(nuevoTamaño, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+          mensajeBienvenida.setIconPixmap(iconoEscalado);
     mensajeBienvenida.setStyleSheet("QLabel{ color: red; }");
     mensajeBienvenida.exec();
 
     QMenuBar *barraMenu = ventanaPrincipal.menuBar();
     QMenu *menuArchivo = barraMenu->addMenu("Archivo");
 
-    menuArchivo->setIcon(QIcon("C:/Users/57302/OneDrive/Imágenes/tolima.png").pixmap(QSize(128, 128)));  // Ajusta el tamaño del icono
+    menuArchivo->setIcon(QIcon(rutaBase + "tolima.png").pixmap(QSize(128, 128)));
 
-    QString nombreBoton = "Acción";
-
-        QAction *abrir = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/Alex castro.png").pixmap(QSize(128, 128)), "Abrir", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *guardar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/VOlpi.jpeg").pixmap(QSize(128, 128)), "Guardar", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *eliminar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/marcoo.jpeg").pixmap(QSize(128, 128)), "Eliminar", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *imprimir = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/el calvo.jpg").pixmap(QSize(128, 128)), "Imprimir", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *centrar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/Yeison-Guzman-Tolima.jpg").pixmap(QSize(128, 128)), "Centrar", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *fuente = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/fuentes.jpg").pixmap(QSize(128, 128)), "Fuente", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *izquierda = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/chipichipi.jpeg").pixmap(QSize(128, 128)), "Izquierda", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *justificar = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/restrepo.jpeg").pixmap(QSize(128, 128)), "Justificar", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *derecha = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/james.jpg").pixmap(QSize(128, 128)), "Derecha", &ventanaPrincipal);  // Ajusta el tamaño del icono
-    QAction *colorTexto = new QAction(QIcon("C:/Users/57302/OneDrive/Imágenes/Lucu.jpg").pixmap(QSize(128, 128)), "Color", &ventanaPrincipal);  // Ajusta el tamaño del icono
-
+    QAction *abrir = new QAction(QIcon(rutaBase + "Alex castro.png").pixmap(QSize(128, 128)), "Abrir", &ventanaPrincipal);
+    QAction *guardar = new QAction(QIcon(rutaBase + "VOlpi.jpeg").pixmap(QSize(128, 128)), "Guardar", &ventanaPrincipal);
+    QAction *eliminar = new QAction(QIcon(rutaBase + "marcoo.jpeg").pixmap(QSize(128, 128)), "Eliminar", &ventanaPrincipal);
+    QAction *imprimir = new QAction(QIcon(rutaBase + "el calvo.jpg").pixmap(QSize(128, 128)), "Imprimir", &ventanaPrincipal);
+    QAction *centrar = new QAction(QIcon(rutaBase + "Yeison-Guzman-Tolima.jpg").pixmap(QSize(128, 128)), "Centrar", &ventanaPrincipal);
+    QAction *fuente = new QAction(QIcon(rutaBase + "fuentes.jpg").pixmap(QSize(128, 128)), "Fuente", &ventanaPrincipal);
+    QAction *izquierda = new QAction(QIcon(rutaBase + "chipichipi.jpeg").pixmap(QSize(128, 128)), "Izquierda", &ventanaPrincipal);
+    QAction *justificar = new QAction(QIcon(rutaBase + "restrepo.jpeg").pixmap(QSize(128, 128)), "Justificar", &ventanaPrincipal);
+    QAction *derecha = new QAction(QIcon(rutaBase + "james.jpg").pixmap(QSize(128, 128)), "Derecha", &ventanaPrincipal);
+    QAction *colorTexto = new QAction(QIcon(rutaBase + "Lucu.jpg").pixmap(QSize(128, 128)), "Color", &ventanaPrincipal);
     abrir->setText("Abrir");
     guardar->setText("Guardar");
     eliminar->setText("Eliminar");
@@ -118,6 +118,8 @@ int main(int argc, char *argv[]) {
     menuArchivo->addAction(eliminar);
     menuArchivo->addAction(imprimir);
     menuArchivo->addAction(fuente);
+
+
 
     QTextEdit *areaTexto = new QTextEdit(&ventanaPrincipal);
     ventanaPrincipal.setCentralWidget(areaTexto);
@@ -159,7 +161,7 @@ int main(int argc, char *argv[]) {
         if (!cursor.hasSelection()) {
             // Mostrar un cuadro de diálogo de confirmación con un icono personalizado
             QMessageBox confirmacion(QMessageBox::Question, "Uribe dio la orden?", "No hay texto seleccionado. ¿Deseas cambiar la fuente de todo el texto?", QMessageBox::Yes | QMessageBox::No, &ventanaPrincipal);
-                confirmacion.setIconPixmap(QPixmap("C:/Users/57302/OneDrive/Imágenes/1. Uribe dio la orden.png"));
+                confirmacion.setIconPixmap(QPixmap("D:/Proyecto final/1. Uribe dio la orden.png"));
             confirmacion.setDefaultButton(QMessageBox::No);
             confirmacion.setButtonText(QMessageBox::Yes, "Sí");
                 confirmacion.setButtonText(QMessageBox::No, "No");
@@ -264,3 +266,5 @@ int main(int argc, char *argv[]) {
 
     return app.exec();
 }
+
+  
