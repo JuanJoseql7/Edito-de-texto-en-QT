@@ -101,7 +101,7 @@ Correo Personal: juanjosequinterolopez7@gmail.com
 
 Correo institucional: j.quintero8@utp.edu.co
 
-https://www.utp.edu.co/cms-utp/data/bin/UTP/web/uploads/media/comunicaciones/img/utp-n.jpg
+![Imagen de la UTP](https://www.utp.edu.co/cms-utp/data/bin/UTP/web/uploads/media/comunicaciones/img/utp-n.jpg)
 
 # Colaborador
 
@@ -119,7 +119,7 @@ Correo Personal: saordi2702@gmail.com
 
 Correo institucional: santiago.orjuela1@utp.edu.co
 
-https://www.utp.edu.co/cms-utp/data/bin/UTP/web/uploads/media/comunicaciones/img/utp-n.jpg
+![Imagen de la UTP](https://www.utp.edu.co/cms-utp/data/bin/UTP/web/uploads/media/comunicaciones/img/utp-n.jpg)
 
 
 
