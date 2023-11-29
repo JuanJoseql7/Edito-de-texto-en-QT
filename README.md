@@ -39,3 +39,25 @@ El código sigue un enfoque orientado a eventos, respondiendo a las acciones del
 
 El manejo de archivos y la interacción con el usuario se realiza de manera segura, considerando posibles errores y proporcionando mensajes informativos mediante QMessageBox en caso de operaciones no exitosas. La aplicación sigue las mejores prácticas de diseño de interfaz y programación en Qt.
 
+# Funciones principales 
+
+*centrarTexto(QTextEdit* textoEdit)
+Esta función utiliza la clase QTextCursor para modificar el formato del bloque actual, centrando así el texto en el área de edición (QTextEdit).
+
+alinearIzquierda(QTextEdit* textoEdit)
+Similar a la función anterior, esta función ajusta la alineación del bloque actual a la izquierda, utilizando QTextCursor y QTextBlockFormat.
+
+justificarTexto(QTextEdit* textoEdit)
+Justifica el texto en el área de edición al modificar la alineación del bloque actual a través de QTextCursor y QTextBlockFormat.
+
+alinearDerecha(QTextEdit* textoEdit)
+Alinea el texto a la derecha en el área de edición mediante la modificación de la alineación del bloque actual utilizando QTextCursor y QTextBlockFormat.
+
+aplicarFormatoTexto(QTextEdit* textoEdit, QTextCharFormat formato)
+Esta función aplica el formato de texto proporcionado (QTextCharFormat) al texto seleccionado en el área de edición.
+
+cambiarColorTexto(QTextEdit* textoEdit)
+Permite al usuario seleccionar un color mediante un cuadro de diálogo (QColorDialog) y aplica ese color al texto seleccionado en el área de edición.
+
+
+
