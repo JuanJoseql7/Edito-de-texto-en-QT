@@ -88,12 +88,19 @@ Ofrece un cuadro de diálogo para seleccionar la fuente del texto, proporcionand
 # Colaborador
 
 Nombre : Juan Jose Quintero Lopez
+
 IE: Universidad tecnologica de pereira - Colombia
+
 Carrera: Ingeneria en sistemas y computacion
+
 Materia: Programacion II
+
 Profesor: Felipe Gutierrez Isaza
+
 Correo Persona: juanjosequinterolopez7@gmail.com
+
 Correo institucional: j.quintero8@utp.edu.co
+
 ![image](https://github.com/JuanJoseql7/Edito-de-texto-en-QT/assets/152351475/2b71e5ca-781e-4633-aad2-7825e4c6aed8)
 
 
