@@ -8,7 +8,7 @@ c++ 23
 
 Qt creator 11.0.3 o una version superior 
 
-Un compilador C++ compatible con qT
+Un compilador C++ compatible con Qt
 
 # Instrucciones de compilacion y ejecucion 
 
@@ -26,3 +26,15 @@ Para poder ejecutar este proyecto es necesario seguir 3 pasos:
 4. Formato de Texto: Ofrece opciones para dar formato al texto, como centrado, alineación a la izquierda, justificación y alineación a la derecha.
 5. Color de Texto: Permite cambiar el color del texto para personalizar aún más la presentación.
 6. Cambiar Fuente: Proporciona la capacidad de cambiar la fuente del texto, ya sea seleccionando una de las opciones predeterminadas o eligiendo una fuente personalizada.
+
+# Arquitectura del codigo
+
+La arquitectura del código sigue un enfoque simple y estructurado, utilizando las clases proporcionadas por la biblioteca Qt. La interfaz gráfica se define mediante un objeto QMainWindow, mientras que las acciones y funciones específicas se manejan mediante funciones conectadas a las señales de los elementos de la interfaz.
+
+# Logica
+
+La lógica del código se basa en la conexión de acciones de la interfaz con funciones específicas. Se utilizan funciones lambda y señales de Qt para establecer estas conexiones. Por ejemplo, la acción de centrar el texto activa la función centrarTexto. Esta lógica modular facilita la expansión y mantenimiento del código.
+
+El código sigue un enfoque orientado a eventos, respondiendo a las acciones del usuario mediante la conexión de señales y ranuras (slots) de Qt. La lógica de manipulación de texto se realiza utilizando QTextCursor y formatos específicos para modificar el contenido del área de edición.
+
+El manejo de archivos y la interacción con el usuario se realiza de manera segura, considerando posibles errores y proporcionando mensajes informativos mediante QMessageBox en caso de operaciones no exitosas. La aplicación sigue las mejores prácticas de diseño de interfaz y programación en Qt.
