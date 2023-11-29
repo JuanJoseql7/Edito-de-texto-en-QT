@@ -38,3 +38,4 @@ La lógica del código se basa en la conexión de acciones de la interfaz con fu
 El código sigue un enfoque orientado a eventos, respondiendo a las acciones del usuario mediante la conexión de señales y ranuras (slots) de Qt. La lógica de manipulación de texto se realiza utilizando QTextCursor y formatos específicos para modificar el contenido del área de edición.
 
 El manejo de archivos y la interacción con el usuario se realiza de manera segura, considerando posibles errores y proporcionando mensajes informativos mediante QMessageBox en caso de operaciones no exitosas. La aplicación sigue las mejores prácticas de diseño de interfaz y programación en Qt.
+
