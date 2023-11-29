@@ -1,0 +1,1 @@
+# Edito-de-texto-en-QT
