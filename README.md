@@ -6,7 +6,9 @@ Este proyecto es un editor de texto implementado en C++ utilizando la biblioteca
 
 c++ 23
 
-Qt creator 6.5.3
+Qt creator 11.0.3 o una version superior 
+
+Un compilador C++ compatible con qT
 
 # Instrucciones de compilacion y ejecucion 
 
