@@ -12,11 +12,14 @@ Un compilador C++ compatible con Qt
 
 # Instrucciones de compilacion y ejecucion 
 
-Para poder ejecutar este proyecto es necesario seguir 3 pasos:
+Para poder ejecutar este proyecto es necesario seguir 6 pasos:
 
-1. Clone el repertorio
-2. Abra el proyecto en el programa y ejecutable Qt creator
-3. Compile el codigo con ayuda de Qt
+1. Descargar el archivo .rar
+2. Abrir el archivo .rar y darle click derecho a la carpeta proyecto final
+3. Seleccionar la funcion copiar ficheros a portapapeles
+4. Pegar los ficheros en el disco local C
+5. Abrir la carpeta en el disco local C generada (Proyecto final)
+6. abrir el archivo "tolima campeon.exe"
 
 # Caracteristicas destacadas
 
@@ -33,11 +36,11 @@ La arquitectura del código sigue un enfoque simple y estructurado, utilizando l
 
 # Logica
 
-La lógica del código se basa en la conexión de acciones de la interfaz con funciones específicas. Se utilizan funciones lambda y señales de Qt para establecer estas conexiones. Por ejemplo, la acción de centrar el texto activa la función centrarTexto. Esta lógica modular facilita la expansión y mantenimiento del código.
+La lógica del código se basa en la conexión de acciones de la interfaz con funciones específicas. Se utilizan funciones propias y señales de Qt para establecer estas conexiones. Por ejemplo, la acción de centrar el texto activa la función centrarTexto. Esta lógica facilita el uso, entendimiento y mantenimiento del código.
 
-El código sigue un enfoque orientado a eventos, respondiendo a las acciones del usuario mediante la conexión de señales y ranuras (slots) de Qt. La lógica de manipulación de texto se realiza utilizando QTextCursor y formatos específicos para modificar el contenido del área de edición.
+El código sigue un enfoque  respondiendo a las acciones del usuario mediante la conexión de señales y ranuras (slots) de Qt. La lógica de manipulación de texto se realiza utilizando QTextCursor y formatos específicos para modificar el contenido del área de edición.
 
-El manejo de archivos y la interacción con el usuario se realiza de manera segura, considerando posibles errores y proporcionando mensajes informativos mediante QMessageBox en caso de operaciones no exitosas. La aplicación sigue las mejores prácticas de diseño de interfaz y programación en Qt.
+El manejo de archivos y la interacción con el usuario se proporcionando mensajes informativos mediante QMessageBox en caso de operaciones no exitosas. La aplicación sigue las mejores prácticas de diseño de interfaz y programación en Qt.
 
 # Funciones principales 
 
