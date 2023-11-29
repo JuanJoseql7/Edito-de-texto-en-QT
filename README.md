@@ -41,7 +41,7 @@ El manejo de archivos y la interacción con el usuario se realiza de manera segu
 
 # Funciones principales 
 
-*centrarTexto(QTextEdit* textoEdit)
+centrarTexto(QTextEdit* textoEdit)
 Esta función utiliza la clase QTextCursor para modificar el formato del bloque actual, centrando así el texto en el área de edición (QTextEdit).
 
 alinearIzquierda(QTextEdit* textoEdit)
@@ -59,5 +59,30 @@ Esta función aplica el formato de texto proporcionado (QTextCharFormat) al text
 cambiarColorTexto(QTextEdit* textoEdit)
 Permite al usuario seleccionar un color mediante un cuadro de diálogo (QColorDialog) y aplica ese color al texto seleccionado en el área de edición.
 
+# Bibliotecas utilizadas
+
+QApplication, QMainWindow, QMenuBar, QMenu, QAction
+Estas clases forman la base de la interfaz gráfica de la aplicación. QApplication representa la aplicación en sí, QMainWindow es la ventana principal, y las demás clases se utilizan para construir la interfaz de menú y acciones.
+
+QFileDialog, QFileInfo
+Estas clases facilitan la interacción con archivos. QFileDialog permite abrir y guardar archivos, mientras que QFileInfo proporciona información sobre los archivos seleccionados.
+
+QTextEdit
+Representa un área de edición de texto enriquecido. Permite la manipulación del contenido de texto, incluida la aplicación de formato.
+
+QPrinter, QPrintDialog
+Estas clases están involucradas en la funcionalidad de impresión. QPrinter se configura para imprimir el contenido, y QPrintDialog facilita la interacción con el usuario para seleccionar opciones de impresión.
+
+QToolBar, QIcon, QPixmap
+QToolBar crea una barra de herramientas que contiene acciones rápidas. QIcon y QPixmap manejan la carga y visualización de iconos.
+
+QMessageBox, QColorDialog
+QMessageBox se utiliza para mostrar mensajes al usuario, mientras que QColorDialog proporciona un cuadro de diálogo para seleccionar colores.
+
+QTextDocumentWriter, QTextStream
+Estas clases están relacionadas con la escritura y manipulación de archivos de texto. QTextDocumentWriter se utiliza para escribir documentos en diferentes formatos, y QTextStream ayuda en la manipulación de texto.
+
+QFontDialog
+Ofrece un cuadro de diálogo para seleccionar la fuente del texto, proporcionando opciones de personalización.
 
 
