@@ -5,6 +5,7 @@ Este proyecto es un editor de texto implementado en C++ utilizando la biblioteca
 # Herramientas utilizadas   
 
 c++ 23
+
 Qt creator 6.5.3
 
 # Instrucciones de compilacion y ejecucion 
